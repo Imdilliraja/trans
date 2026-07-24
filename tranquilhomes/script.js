@@ -332,4 +332,57 @@ document.querySelectorAll('img').forEach(img => {
         const activeFilter = document.querySelector('.filter-btn.active')?.dataset.filter || 'all';
         renderProducts(activeFilter);
     });
+
+    // ===================== SCROLL REVEAL ANIMATIONS =====================
+    const revealElements = document.querySelectorAll('.destination-card, .accommodation-card, .product-card, .testimonial-card, .gallery-item, .amenities-grid div, .stat-item, .footer-col');
+    
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                setTimeout(() => {
+                    entry.target.classList.add('active');
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }, index * 100);
+                revealObserver.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    });
+
+    revealElements.forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(30px)';
+        el.style.transition = 'all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+        revealObserver.observe(el);
+    });
+
+    // ===================== SMOOTH SECTION REVEAL =====================
+    const sections = document.querySelectorAll('section');
+    const sectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, { threshold: 0.1 });
+
+    sections.forEach(section => {
+        if (!section.classList.contains('site-header')) {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'all 0.8s ease';
+            sectionObserver.observe(section);
+        }
+    });
+
+    // Make header always visible
+    const header = document.querySelector('.site-header');
+    if (header) {
+        header.style.opacity = '1';
+        header.style.transform = 'none';
+    }
 })();

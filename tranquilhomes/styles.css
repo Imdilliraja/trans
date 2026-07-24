@@ -2511,3 +2511,475 @@ img {
     font-size: 16px;
     margin-bottom: 8px;
 }
+
+/* ========================================
+   CSS Animations & Keyframes
+   ======================================== */
+
+/* Scroll Reveal Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(60px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Animation Classes */
+.animate-fade-in-up {
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+.animate-fade-in-down {
+    animation: fadeInDown 0.8s ease forwards;
+}
+
+.animate-fade-in-left {
+    animation: fadeInLeft 0.8s ease forwards;
+}
+
+.animate-fade-in-right {
+    animation: fadeInRight 0.8s ease forwards;
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.8s ease forwards;
+}
+
+.animate-scale-in {
+    animation: scaleIn 0.6s ease forwards;
+}
+
+.animate-slide-in-up {
+    animation: slideInUp 0.8s ease forwards;
+}
+
+/* Delay Classes */
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+.delay-500 { animation-delay: 0.5s; }
+.delay-600 { animation-delay: 0.6s; }
+.delay-700 { animation-delay: 0.7s; }
+.delay-800 { animation-delay: 0.8s; }
+
+/* Initially hidden for scroll reveal */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Page Banner Animation */
+.page-banner h1 {
+    animation: fadeInDown 0.8s ease forwards;
+}
+
+.page-banner p {
+    animation: fadeInUp 0.8s ease 0.2s forwards;
+    opacity: 0;
+}
+
+/* Button Hover Animations */
+.btn-book-now,
+.btn-send,
+.btn-primary {
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-book-now:hover,
+.btn-send:hover,
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(26, 107, 74, 0.3);
+}
+
+.btn-book-now:active,
+.btn-send:active,
+.btn-primary:active {
+    transform: translateY(0);
+}
+
+/* Destination Card Hover Effects */
+.destination-card {
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.destination-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+.destination-image img {
+    transition: transform 0.5s ease;
+}
+
+.destination-card:hover .destination-image img {
+    transform: scale(1.08);
+}
+
+/* Accommodation Card Hover */
+.accommodation-card {
+    transition: all 0.4s ease;
+}
+
+.accommodation-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* Product Card Hover */
+.product-card {
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.product-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Gallery Image Hover */
+.gallery-item {
+    transition: all 0.4s ease;
+}
+
+.gallery-item:hover {
+    transform: scale(1.03);
+}
+
+.gallery-item img {
+    transition: transform 0.5s ease, filter 0.3s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+    filter: brightness(1.1);
+}
+
+/* Testimonial Card Hover */
+.testimonial-card {
+    transition: all 0.4s ease;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Footer Link Hover */
+.footer-links a {
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.footer-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #1a6b4a;
+    transition: width 0.3s ease;
+}
+
+.footer-links a:hover::after {
+    width: 100%;
+}
+
+/* Social Icon Hover */
+.social-icons a,
+.footer-social a {
+    transition: all 0.3s ease;
+}
+
+.social-icons a:hover,
+.footer-social a:hover {
+    transform: translateY(-3px) scale(1.1);
+    color: #1a6b4a;
+}
+
+/* Nav Link Hover */
+.main-nav a {
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.main-nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: #1a6b4a;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.main-nav a:hover::after,
+.main-nav a.active::after {
+    width: 100%;
+}
+
+/* Hamburger Animation */
+.hamburger span {
+    transition: all 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+}
+
+/* Loading Animation */
+.loading {
+    position: relative;
+    overflow: hidden;
+}
+
+.loading::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    animation: shimmer 1.5s infinite;
+}
+
+/* Focus States for Accessibility */
+a:focus,
+button:focus,
+input:focus,
+textarea:focus,
+select:focus {
+    outline: 2px solid #1a6b4a;
+    outline-offset: 2px;
+}
+
+/* Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Image Placeholder Animation */
+.image-placeholder {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+}
+
+/* Payment Trigger Button */
+.payment-trigger {
+    animation: pulse 2s infinite;
+}
+
+.payment-trigger:hover {
+    animation: none;
+    transform: scale(1.05);
+}
+
+/* Hero Slider Caption Animation */
+.hero-slide.active .hero-caption h2 {
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+.hero-slide.active .hero-caption p {
+    animation: fadeInUp 0.8s ease 0.2s forwards;
+}
+
+.hero-slide.active .hero-caption .btn {
+    animation: fadeInUp 0.8s ease 0.4s forwards;
+}
+
+/* Filter Button Active State */
+.filter-btn.active {
+    animation: scaleIn 0.3s ease;
+}
+
+/* Toast Notification */
+.toast {
+    animation: slideInRight 0.4s ease, fadeOut 0.4s ease 2.6s forwards;
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+/* Lightbox Animation */
+.lightbox-overlay.active {
+    animation: fadeIn 0.3s ease;
+}
+
+.lightbox-overlay.active .lightbox-content {
+    animation: scaleIn 0.4s ease;
+}
+
+/* Modal Animation */
+.product-modal-overlay.active {
+    animation: fadeIn 0.3s ease;
+}
+
+.product-modal-overlay.active .product-modal-content {
+    animation: scaleIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Amenities Icon Animation */
+.amenities-grid i {
+    transition: all 0.3s ease;
+}
+
+.amenities-grid div:hover i {
+    transform: scale(1.2) rotate(5deg);
+    color: #1a6b4a;
+}
+
+/* Stats Counter Animation */
+.stat-item {
+    transition: all 0.3s ease;
+}
+
+.stat-item:hover {
+    transform: scale(1.05);
+}
+
+/* Back to Top Button */
+.back-to-top {
+    transition: all 0.3s ease;
+    animation: fadeIn 0.3s ease;
+}
+
+.back-to-top:hover {
+    transform: translateY(-3px);
+    background: #1a6b4a;
+}
