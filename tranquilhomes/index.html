@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tranquilhomes – Home Sweet Home</title>
+    <link rel="icon" href="assets/images/logos/Tranquil-Small-150x150.png" sizes="32x32">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- Header / Navigation -->
+<header class="site-header">
+    <div class="header-container">
+        <div class="logo">
+            <a href="#">
+                <img src="assets/images/logos/Tranquil-logo-new1.png" alt="Tranquil Homes">
+            </a>
+        </div>
+        <nav class="main-nav" id="mainNav">
+            <ul>
+                <li><a href="#" class="active">Home</a></li>
+                <li><a href="accommodations.html">Accommodations</a></li>
+                <li><a href="restaurants.html">Restaurants</a></li>
+                <li><a href="famous-destinations.html">Famous Destinations</a></li>
+            </ul>
+        </nav>
+        <div class="header-right">
+            <a href="#" class="btn-book-now">Book Now</a> 
+            <div class="social-icons">
+                <a href="https://facebook.com" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://facebook.com" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://facebook.com" aria-label="Youtube"><i class="fab fa-youtube"></i></a>
+            </div>
+            <button class="hamburger" id="hamburger" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </div>
+</header>
+
+<!-- Mobile Nav Overlay -->
+<div class="mobile-nav-overlay" id="mobileNavOverlay">
+    <div class="mobile-nav-content">
+        <button class="mobile-nav-close" id="mobileNavClose">&times;</button>
+        <ul>
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="accommodations.html">Accommodations</a></li>
+            <li><a href="restaurants.html">Restaurants</a></li>
+            <li><a href="famous-destinations.html">Famous Destinations</a></li>
+        </ul>
+    </div>
+</div>
+
+<!-- Hero Slider -->
+<section class="hero-slider">
+    <div class="slider-wrapper" id="heroSlider">
+        <div class="slide active">
+            <img src="assets/images/hero/Tranquil-Header5.png" alt="Tranquil Homes">
+        </div>
+        <div class="slide">
+            <img src="assets/images/hero/Tranquil-header4.png" alt="Tranquil Homes">
+        </div>
+        <div class="slide">
+            <img src="assets/images/hero/Tranquilhomes-hm3.png" alt="Tranquil Homes">
+        </div>
+    </div>
+    <button class="slider-btn slider-prev" id="sliderPrev"><i class="fas fa-chevron-left"></i></button>
+    <button class="slider-btn slider-next" id="sliderNext"><i class="fas fa-chevron-right"></i></button>
+    <div class="slider-dots" id="sliderDots">
+        <span class="dot active" data-index="0"></span>
+        <span class="dot" data-index="1"></span>
+        <span class="dot" data-index="2"></span>
+    </div>
+</section>
+
+<!-- About Section -->
+<section class="about-section">
+    <div class="container">
+        <div class="section-header">
+            <h2><span>Tranquil Homes</span> – Stay. Dine. Unwind.</h2>
+            <p>Experience unmatched hospitality with serene stays, exquisite dining, and world-class amenities—all designed for your ultimate comfort and relaxation.</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-hotel"></i>
+                </div>
+                <h3>Downtown Oasis</h3>
+                <p>Discover urban luxury at its finest—our hotel offers unmatched comfort and exquisite dining, all in the very heart of the city.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h3>Warm Welcome</h3>
+                <p>Experience exceptional hospitality with our friendly staff, always ready to make your stay comfortable, safe and memorable.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-utensils"></i>
+                </div>
+                <h3>Flavor Haven</h3>
+                <p>Savor the finest culinary delights at our restaurant, where every dish is crafted with passion and the freshest ingredients. A perfect blend of taste!</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Accommodations Section -->
+<section class="accommodations-section" id="accommodations">
+    <div class="container">
+        <div class="accommodations-grid">
+            <div class="accommodation-card">
+                <div class="accommodation-image">
+                    <img src="assets/images/accommodations/Executive10.jpg" alt="Ishwerya Suites">
+                </div>
+                <div class="accommodation-info">
+                    <h4>Ishwerya Suites</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> ASSAYE ROAD, FRAZER TOWN, CANTONMENT, BANGALORE</p>
+                    <a href="accommodations.html" class="btn-explore">Explore Now</a>
+                </div>
+            </div>
+            <div class="accommodation-card">
+                <div class="accommodation-image">
+                    <img src="assets/images/accommodations/PalaniAndvar-blr-1.jpg" alt="Palani Andavar Residency">
+                </div>
+                <div class="accommodation-info">
+                    <h4>Palani Andavar Residency</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> TANK ROAD, ULSOOR LAKE, CANTONMENT, BANGALORE</p>
+                    <a href="accommodations.html" class="btn-explore">Explore Now</a>
+                </div>
+            </div>
+            <div class="accommodation-card">
+                <div class="accommodation-image">
+                    <img src="assets/images/accommodations/DSC01375.jpg" alt="Ishwerya Oasis">
+                </div>
+                <div class="accommodation-info">
+                    <h4>Ishwerya Oasis</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> KAMMANAHALLI & KALYAN NAGAR, BANGALORE</p>
+                    <a href="accommodations.html" class="btn-explore">Explore Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Amenities Section -->
+<section class="amenities-section">
+    <div class="container">
+        <div class="section-header">
+            <h2>Exceptional Amenities for Exceptional Stays</h2>
+            <p>Every detail at Tranquil Homes is designed to offer you relaxation, comfort, and convenience</p>
+        </div>
+        <div class="amenities-grid">
+            <div class="amenity-item">
+                <i class="fas fa-snowflake"></i>
+                <span>Air-conditioning</span>
+            </div>
+            <div class="amenity-item">
+                <i class="fas fa-wifi"></i>
+                <span>Wi-Fi Internet Access</span>
+            </div>
+            <div class="amenity-item">
+                <i class="fas fa-tv"></i>
+                <span>Television</span>
+            </div>
+            <div class="amenity-item">
+                <i class="fas fa-mug-hot"></i>
+                <span>Tea & Coffee Maker</span>
+            </div>
+            <div class="amenity-item">
+                <i class="fas fa-coffee"></i>
+                <span>Complimentary Breakfast</span>
+            </div>
+            <div class="amenity-item">
+                <i class="fas fa-archive"></i>
+                <span>Wardrobe</span>
+            </div>
+            <div class="amenity-item">
+                <i class="fas fa-concierge-bell"></i>
+                <span>Room Service</span>
+            </div>
+            <div class="amenity-item">
+                <i class="fas fa-tshirt"></i>
+                <span>Laundry Service</span>
+            </div>
+            <div class="amenity-item">
+                <i class="fas fa-lock"></i>
+                <span>In-room Safe</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- Footer -->
+<footer class="site-footer">
+    <div class="footer-top">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col footer-about">
+                    <div class="footer-logo">
+                        <a href="#">
+                            <img src="assets/images/logos/Tranquil-logo-new1.png" alt="Tranquil Homes">
+                        </a>
+                    </div>
+                    <p>Everything you need for work and play; Our Hotel delivers the comfort and convenience. Our spacious guest rooms offer plush bedding and stylish bath amenities. The in-room desk and hotel business centre provide the right tools for a productive stay. Experience where stylish, modern design meets exceptional service and value at Tranquil Homes.</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col footer-links">
+                    <h3>Useful Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about-us.html">About Us</a></li>
+                        <li><a href="accommodations.html">Accommodation</a></li>
+                        <li><a href="restaurants.html">Restaurants</a></li>
+                        <li><a href="testimonials.html">Testimonials</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="terms-conditions.html">Terms & Conditions</a></li>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col footer-contact">
+                    <h3>Get in Touch</h3>
+                    <form class="contact-form" id="contactForm">
+                        <input type="text" placeholder="Name" required>
+                        <input type="email" placeholder="Email" required>
+                        <textarea placeholder="Message" rows="4" required></textarea>
+                        <input type="tel" placeholder="Phone">
+                        <button type="submit" class="btn-send">Send</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div class="container">
+            <p>&copy;2026. Tranquil Homes All Rights Reserved. <span>Home Sweet Home</span></p>
+        </div>
+    </div>
+</footer>
+
+<!-- Payment Popup -->
+<div class="popup-overlay" id="paymentPopup">
+    <div class="popup-content">
+        <button class="popup-close" id="popupClose">&times;</button>
+        <div class="popup-body">
+            <img src="assets/images/payment/oie_lQEwftt06VAZ-211x300.png" alt="Payment QR" class="popup-qr">
+            <div class="payment-details">
+                <div class="detail-row">
+                    <span>Account Number</span>
+                    <span>: 41158989269</span>
+                </div>
+                <div class="detail-row">
+                    <span>Account Name</span>
+                    <span>: Tranquil Homes</span>
+                </div>
+                <div class="detail-row">
+                    <span>Account Type</span>
+                    <span>: Current Account</span>
+                </div>
+                <div class="detail-row">
+                    <span>Branch</span>
+                    <span>: Shiwanchetty Garden, Bengaluru</span>
+                </div>
+                <div class="detail-row">
+                    <span>IFSC Code</span>
+                    <span>: SBIN0031626</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Payment Trigger Button -->
+<button class="payment-trigger" id="paymentTrigger">Payment</button>
+
+<script src="script.js"></script>
+</body>
+</html>

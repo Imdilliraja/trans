@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard – Tranquilhomes</title>
+    <link rel="icon" href="assets/images/logos/Tranquil-Small-150x150.png" sizes="32x32">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="admin-body">
+
+<!-- Sidebar -->
+<aside class="admin-sidebar" id="adminSidebar">
+    <div class="sidebar-header">
+        <img src="assets/images/logos/Tranquil-logo-new1.png" alt="Tranquil Homes" class="sidebar-logo">
+        <button class="sidebar-close" id="sidebarClose"><i class="fas fa-times"></i></button>
+    </div>
+    <nav class="sidebar-nav">
+        <a href="#" class="sidebar-link active" data-section="dashboard"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+        <a href="#" class="sidebar-link" data-section="products"><i class="fas fa-box"></i> Products</a>
+        <a href="#" class="sidebar-link" data-section="add-product"><i class="fas fa-plus-circle"></i> Add Product</a>
+        <a href="#" class="sidebar-link" data-section="bookings"><i class="fas fa-calendar-check"></i> Bookings</a>
+        <a href="#" class="sidebar-link" data-section="messages"><i class="fas fa-envelope"></i> Messages</a>
+        <a href="#" class="sidebar-link" data-section="settings"><i class="fas fa-cog"></i> Settings</a>
+    </nav>
+    <div class="sidebar-footer">
+        <a href="index.html"><i class="fas fa-globe"></i> View Website</a>
+        <a href="#" id="adminLogout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+    </div>
+</aside>
+
+<!-- Main Content -->
+<div class="admin-main">
+    <!-- Top Bar -->
+    <header class="admin-topbar">
+        <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
+        <div class="topbar-right">
+            <div class="admin-user">
+                <i class="fas fa-user-circle"></i>
+                <span>Dilli</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Dashboard Section -->
+    <section class="admin-section active" id="section-dashboard">
+        <div class="section-header-admin">
+            <h1>Dashboard</h1>
+            <p>Welcome back, Dilli! Here's your property overview.</p>
+        </div>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon"><i class="fas fa-box"></i></div>
+                <div class="stat-info">
+                    <h3 id="totalProducts">0</h3>
+                    <p>Total Products</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon bookings"><i class="fas fa-calendar-check"></i></div>
+                <div class="stat-info">
+                    <h3 id="activeBookings">0</h3>
+                    <p>Active Bookings</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon revenue"><i class="fas fa-rupee-sign"></i></div>
+                <div class="stat-info">
+                    <h3 id="totalRevenue">₹0</h3>
+                    <p>Total Revenue</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon messages"><i class="fas fa-envelope"></i></div>
+                <div class="stat-info">
+                    <h3 id="newMessages">0</h3>
+                    <p>New Messages</p>
+                </div>
+            </div>
+        </div>
+        <div class="recent-section">
+            <h2>Recent Products</h2>
+            <div class="table-wrapper">
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>Image</th>
+                            <th>Product Name</th>
+                            <th>Category</th>
+                            <th>Price</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="recentProductsTable">
+                        <tr><td colspan="6" class="empty-state">No products added yet</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="admin-section" id="section-products">
+        <div class="section-header-admin">
+            <h1>Products</h1>
+            <button class="btn-admin-primary" onclick="showSection('add-product')"><i class="fas fa-plus"></i> Add New</button>
+        </div>
+        <div class="search-bar">
+            <input type="text" id="productSearch" placeholder="Search products..." oninput="filterProducts()">
+            <select id="categoryFilter" onchange="filterProducts()">
+                <option value="all">All Categories</option>
+                <option value="room">Rooms</option>
+                <option value="food">Food</option>
+                <option value="service">Services</option>
+                <option value="amenity">Amenities</option>
+            </select>
+        </div>
+        <div class="table-wrapper">
+            <table class="admin-table">
+                <thead>
+                    <tr>
+                        <th>Image</th>
+                        <th>Product Name</th>
+                        <th>Category</th>
+                        <th>Description</th>
+                        <th>Price</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="productsTable">
+                    <tr><td colspan="7" class="empty-state">No products added yet</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Add Product Section -->
+    <section class="admin-section" id="section-add-product">
+        <div class="section-header-admin">
+            <h1 id="formTitle">Add New Product</h1>
+        </div>
+        <form class="admin-form" id="productForm">
+            <input type="hidden" id="editProductId" value="">
+            <div class="form-grid">
+                <div class="form-group full-width">
+                    <label>Product Image</label>
+                    <div class="image-input-tabs">
+                        <button type="button" class="tab-btn active" data-tab="upload" onclick="switchImageTab('upload')">
+                            <i class="fas fa-upload"></i> Upload File
+                        </button>
+                        <button type="button" class="tab-btn" data-tab="url" onclick="switchImageTab('url')">
+                            <i class="fas fa-link"></i> Image URL
+                        </button>
+                    </div>
+                    <div class="tab-content active" id="tab-upload">
+                        <label for="productImageFile" class="file-upload-area" id="fileUploadArea">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                            <span>Click to upload or drag & drop</span>
+                            <small>JPG, PNG, WEBP (Max 2MB)</small>
+                            <input type="file" id="productImageFile" accept="image/*" hidden>
+                        </label>
+                    </div>
+                    <div class="tab-content" id="tab-url">
+                        <input type="url" id="productImage" placeholder="https://example.com/image.jpg">
+                    </div>
+                    <input type="hidden" id="productImageSrc" value="">
+                    <div class="image-preview" id="imagePreview">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <span>Image preview will appear here</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Product Name *</label>
+                    <input type="text" id="productName" placeholder="e.g. Deluxe Room" required>
+                </div>
+                <div class="form-group">
+                    <label>Category *</label>
+                    <select id="productCategory" required>
+                        <option value="">Select Category</option>
+                        <option value="room">Room</option>
+                        <option value="food">Food</option>
+                        <option value="service">Service</option>
+                        <option value="amenity">Amenity</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Price (₹) *</label>
+                    <input type="number" id="productPrice" placeholder="e.g. 2500" min="0" required>
+                </div>
+                <div class="form-group">
+                    <label>Status</label>
+                    <select id="productStatus">
+                        <option value="active">Active</option>
+                        <option value="inactive">Inactive</option>
+                        <option value="sold-out">Sold Out</option>
+                    </select>
+                </div>
+                <div class="form-group full-width">
+                    <label>Description</label>
+                    <textarea id="productDescription" placeholder="Describe your product..." rows="4"></textarea>
+                </div>
+                <div class="form-group full-width">
+                    <label>Features (comma separated)</label>
+                    <input type="text" id="productFeatures" placeholder="e.g. AC, WiFi, Breakfast Included">
+                </div>
+            </div>
+            <div class="form-actions">
+                <button type="submit" class="btn-admin-primary"><i class="fas fa-save"></i> <span id="submitBtnText">Save Product</span></button>
+                <button type="button" class="btn-admin-secondary" onclick="resetForm()"><i class="fas fa-times"></i> Cancel</button>
+            </div>
+        </form>
+    </section>
+
+    <!-- Bookings Section -->
+    <section class="admin-section" id="section-bookings">
+        <div class="section-header-admin">
+            <h1>Bookings</h1>
+        </div>
+        <div class="table-wrapper">
+            <table class="admin-table">
+                <thead>
+                    <tr>
+                        <th>Guest Name</th>
+                        <th>Room Type</th>
+                        <th>Check-in</th>
+                        <th>Check-out</th>
+                        <th>Status</th>
+                        <th>Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td colspan="6" class="empty-state">Loading bookings...</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Messages Section -->
+    <section class="admin-section" id="section-messages">
+        <div class="section-header-admin">
+            <h1>Messages</h1>
+        </div>
+        <div class="messages-list">
+            <div class="empty-state"><i class="fas fa-envelope-open" style="font-size:48px;margin-bottom:16px;display:block;color:#ccc;"></i><p>Loading messages...</p></div>
+        </div>
+    </section>
+
+    <!-- Settings Section -->
+    <section class="admin-section" id="section-settings">
+        <div class="section-header-admin">
+            <h1>Settings</h1>
+        </div>
+        <div class="settings-card">
+            <h3>Change Password</h3>
+            <form class="admin-form" id="changePasswordForm">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Current Password</label>
+                        <input type="password" id="currentPassword" required>
+                    </div>
+                    <div class="form-group">
+                        <label>New Password</label>
+                        <input type="password" id="newPassword" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Confirm New Password</label>
+                        <input type="password" id="confirmPassword" required>
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn-admin-primary"><i class="fas fa-save"></i> Update Password</button>
+                </div>
+            </form>
+        </div>
+    </section>
+</div>
+
+<!-- Delete Confirmation Modal -->
+<div class="admin-modal" id="deleteModal">
+    <div class="admin-modal-content">
+        <div class="modal-icon"><i class="fas fa-exclamation-triangle"></i></div>
+        <h3>Delete Product?</h3>
+        <p>Are you sure you want to delete this product? This action cannot be undone.</p>
+        <div class="modal-actions">
+            <button class="btn-admin-danger" id="confirmDelete">Yes, Delete</button>
+            <button class="btn-admin-secondary" id="cancelDelete">Cancel</button>
+        </div>
+    </div>
+</div>
+
+<!-- Toast Notification -->
+<div class="toast" id="toast">
+    <i class="fas fa-check-circle"></i>
+    <span id="toastMessage">Product saved successfully!</span>
+</div>
+
+<script src="admin.js"></script>
+</body>
+</html>
