@@ -275,18 +275,18 @@ img.prog-img.loaded{filter:blur(0);transform:scale(1);opacity:1}
 
 /* ACCOMMODATIONS PAGE */
 .accommodations-page{padding:50px 0;background:#f9fafb}
-.accommodations-grid{display:flex;flex-direction:column;gap:30px}
-.accommodation-card{display:flex;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 5px 20px rgba(0,0,0,0.06);border:1px solid #f0f0f0}
-.accommodation-image{flex:0 0 400px;min-height:280px}
-.accommodation-image img{width:100%;height:100%;object-fit:cover}
-.accommodation-info{flex:1;padding:30px}
-.accommodation-info h4{font-family:'Playfair Display',serif;font-size:22px;color:#1a6b4a;margin-bottom:8px}
-.accommodation-info > p{font-size:13px;color:#666;margin-bottom:12px}
-.accommodation-info > p i{color:#1a6b4a;margin-right:4px}
-.accommodation-desc{font-size:14px;color:#555;line-height:1.7;margin-bottom:16px}
-.accommodation-features{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:20px}
-.accommodation-features span{font-size:12px;color:#555;background:#f0fdf4;padding:6px 12px;border-radius:20px}
-.accommodation-features span i{color:#1a6b4a;margin-right:4px}
+.accommodations-page .accommodations-grid{display:flex;flex-direction:column;gap:30px}
+.accommodations-page .accommodation-card{display:flex;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 5px 20px rgba(0,0,0,0.06);border:1px solid #f0f0f0}
+.accommodations-page .accommodation-image{flex:0 0 400px;min-height:280px}
+.accommodations-page .accommodation-image img{width:100%;height:100%;object-fit:cover}
+.accommodations-page .accommodation-info{flex:1;padding:30px}
+.accommodations-page .accommodation-info h4{font-family:'Playfair Display',serif;font-size:22px;color:#1a6b4a;margin-bottom:8px}
+.accommodations-page .accommodation-info > p{font-size:13px;color:#666;margin-bottom:12px}
+.accommodations-page .accommodation-info > p i{color:#1a6b4a;margin-right:4px}
+.accommodations-page .accommodation-desc{font-size:14px;color:#555;line-height:1.7;margin-bottom:16px}
+.accommodations-page .accommodation-features{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:20px}
+.accommodations-page .accommodation-features span{font-size:12px;color:#555;background:#f0fdf4;padding:6px 12px;border-radius:20px}
+.accommodations-page .accommodation-features span i{color:#1a6b4a;margin-right:4px}
 
 /* DESTINATIONS */
 .destinations-content{padding:80px 0;background:#f9fafb}
@@ -524,4 +524,4 @@ img.prog-img.loaded{filter:blur(0);transform:scale(1);opacity:1}
 
 /* RESPONSIVE */
 @media(max-width:1024px){.features-grid,.accommodations-grid,.amenities-grid{grid-template-columns:repeat(2,1fr)}.footer-grid{grid-template-columns:1fr 1fr}.room-specs{grid-template-columns:1fr}}
-@media(max-width:768px){.main-nav{display:none}.hamburger{display:flex}.social-icons{display:none}.btn-book-now{display:none}.mobile-book-now{display:block}.hero-slider{height:70vh}.section-header h2{font-size:28px}.features-grid,.amenities-grid{grid-template-columns:1fr}.accommodation-card{flex-direction:column}.accommodation-image{flex:none;min-height:200px}.footer-grid{grid-template-columns:1fr;gap:30px}.slider-btn{width:44px;height:44px;font-size:16px}.slider-prev{left:15px}.slider-next{right:15px}.popup-content{padding:28px}.detail-row{flex-direction:column;gap:4px}.page-banner h1{font-size:32px}.destinations-grid{grid-template-columns:1fr}.testimonials-grid{grid-template-columns:1fr}.gallery-grid{grid-template-columns:repeat(auto-fill,minmax(240px,1fr))}.admin-sidebar{transform:translateX(-100%)}.admin-sidebar.active{transform:translateX(0)}.sidebar-close{display:block}.admin-main{margin-left:0}.menu-toggle{display:block}.stats-grid{grid-template-columns:repeat(2,1fr)}.property-hero{height:40vh;min-height:300px}.property-hero h1{font-size:28px}.property-meta{flex-direction:column;gap:8px}.room-card-header{padding:20px}.room-card-body{padding:20px}.room-card-footer{padding:16px 20px}.btn-room-book{width:100%;justify-content:center;padding:14px 24px;font-size:15px}.gallery-scroll img{height:200px;min-width:280px}.room-tabs{gap:6px}.room-tab{padding:10px 20px;font-size:13px}.property-switcher{flex-direction:column;align-items:stretch}.prop-btn{justify-content:center}.booking-form-grid{grid-template-columns:1fr}.booking-modal{margin:10px}.booking-modal-header,.booking-form{padding-left:20px;padding-right:20px}.prop-info-bar{flex-direction:column;gap:8px}}
+@media(max-width:768px){.main-nav{display:none}.hamburger{display:flex}.social-icons{display:none}.btn-book-now{display:none}.mobile-book-now{display:block}.hero-slider{height:70vh}.section-header h2{font-size:28px}.features-grid,.amenities-grid,.accommodations-grid{grid-template-columns:1fr}.accommodation-card{flex-direction:column}.accommodation-image{flex:none;min-height:200px}.footer-grid{grid-template-columns:1fr;gap:30px}.slider-btn{width:44px;height:44px;font-size:16px}.slider-prev{left:15px}.slider-next{right:15px}.popup-content{padding:28px}.detail-row{flex-direction:column;gap:4px}.page-banner h1{font-size:32px}.destinations-grid{grid-template-columns:1fr}.testimonials-grid{grid-template-columns:1fr}.gallery-grid{grid-template-columns:repeat(auto-fill,minmax(240px,1fr))}.admin-sidebar{transform:translateX(-100%)}.admin-sidebar.active{transform:translateX(0)}.sidebar-close{display:block}.admin-main{margin-left:0}.menu-toggle{display:block}.stats-grid{grid-template-columns:repeat(2,1fr)}.property-hero{height:40vh;min-height:300px}.property-hero h1{font-size:28px}.property-meta{flex-direction:column;gap:8px}.room-card-header{padding:20px}.room-card-body{padding:20px}.room-card-footer{padding:16px 20px}.btn-room-book{width:100%;justify-content:center;padding:14px 24px;font-size:15px}.gallery-scroll img{height:200px;min-width:280px}.room-tabs{gap:6px}.room-tab{padding:10px 20px;font-size:13px}.property-switcher{flex-direction:column;align-items:stretch}.prop-btn{justify-content:center}.booking-form-grid{grid-template-columns:1fr}.booking-modal{margin:10px}.booking-modal-header,.booking-form{padding-left:20px;padding-right:20px}.prop-info-bar{flex-direction:column;gap:8px}}
