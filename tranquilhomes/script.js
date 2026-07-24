@@ -1,9 +1,43 @@
 // ===================== HIDE .html FROM URL =====================
 (function () {
-    if (window.location.pathname.endsWith('.html')) {
-        var clean = window.location.pathname.replace('.html', '');
+    // On load: if URL has .html, replace with clean URL; hide index too
+    var path = window.location.pathname;
+    if (path.endsWith('.html')) {
+        var clean = path.replace('.html', '');
+        // Hide index → root
+        if (clean.endsWith('/index')) {
+            clean = clean.replace('/index', '/');
+        }
         window.history.replaceState({}, '', clean);
+    } else if (path.endsWith('/index')) {
+        window.history.replaceState({}, '', path.replace('/index', '/'));
     }
+
+    // On reload/refresh: navigate to .html version so server can find it
+    window.addEventListener('keydown', function (e) {
+        if ((e.key === 'F5') || (e.ctrlKey && e.key === 'r') || (e.ctrlKey && e.key === 'R')) {
+            e.preventDefault();
+            var p = window.location.pathname;
+            // Restore index for home page
+            if (p === '/' || p.endsWith('/')) {
+                window.location.href = p + 'index.html';
+            } else if (!p.endsWith('.html')) {
+                window.location.href = p + '.html';
+            } else {
+                window.location.reload();
+            }
+        }
+    });
+
+    // Also handle browser reload button via beforeunload
+    window.addEventListener('beforeunload', function () {
+        var p = window.location.pathname;
+        if (!p.endsWith('.html') && !p.endsWith('/')) {
+            try { window.history.replaceState({}, '', p + '.html'); } catch (e) {}
+        } else if (p.endsWith('/')) {
+            try { window.history.replaceState({}, '', p + 'index.html'); } catch (e) {}
+        }
+    });
 })();
 
 // ===================== PROGRESSIVE IMAGE LOADING =====================
@@ -572,22 +606,19 @@ document.querySelectorAll('img').forEach(img => {
     document.querySelectorAll('a[href]').forEach(link => {
         link.addEventListener('click', function(e) {
             const href = this.getAttribute('href');
-            if (href.endsWith('.html') || href === '/') {
+            if (href && href.endsWith('.html') && !href.startsWith('http') && !href.startsWith('#')) {
                 e.preventDefault();
                 document.body.style.opacity = '0';
-                document.body.style.transition = 'opacity 0.3s ease';
-                
-                setTimeout(() => {
-                    window.location.href = href;
-                }, 300);
+                document.body.style.transition = 'opacity 0.25s ease';
+                setTimeout(() => { window.location.href = href; }, 250);
             }
         });
     });
 
     // Fade in on page load
     document.body.style.opacity = '0';
-    document.body.style.transition = 'opacity 0.5s ease';
-    setTimeout(() => {
+    requestAnimationFrame(() => {
+        document.body.style.transition = 'opacity 0.4s ease';
         document.body.style.opacity = '1';
-    }, 100);
+    });
 })();
