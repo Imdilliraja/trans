@@ -6,6 +6,43 @@
     }
 })();
 
+// ===================== PROGRESSIVE IMAGE LOADING =====================
+(function () {
+    document.querySelectorAll('img[data-prog-src]').forEach(function (img) {
+        var highSrc = img.getAttribute('data-prog-src');
+        if (!highSrc) return;
+
+        img.classList.add('blur');
+        img.style.opacity = '0.7';
+
+        var tempImg = new Image();
+        tempImg.onload = function () {
+            img.src = highSrc;
+            img.classList.remove('blur');
+            img.classList.add('loaded');
+            img.style.opacity = '1';
+        };
+        tempImg.src = highSrc;
+    });
+
+    document.querySelectorAll('.prog-wrap').forEach(function (wrap) {
+        var placeholder = wrap.querySelector('.prog-placeholder');
+        var fullImg = wrap.querySelector('.prog-full');
+        if (!placeholder || !fullImg) return;
+
+        var highSrc = fullImg.getAttribute('data-prog-src');
+        if (!highSrc) return;
+
+        var tempImg = new Image();
+        tempImg.onload = function () {
+            fullImg.src = highSrc;
+            fullImg.classList.add('show');
+            placeholder.classList.add('hide');
+        };
+        tempImg.src = highSrc;
+    });
+})();
+
 // ===================== HERO SLIDER =====================
 (function () {
     const slides = document.querySelectorAll('.slide');
@@ -333,56 +370,224 @@ document.querySelectorAll('img').forEach(img => {
         renderProducts(activeFilter);
     });
 
-    // ===================== SCROLL REVEAL ANIMATIONS =====================
-    const revealElements = document.querySelectorAll('.destination-card, .accommodation-card, .product-card, .testimonial-card, .gallery-item, .amenities-grid div, .stat-item, .footer-col');
+    // ===================== SCROLL REVEAL ANIMATIONS (Optimized) =====================
+    const revealElements = document.querySelectorAll('.destination-card, .accommodation-card, .product-card, .testimonial-card, .gallery-item');
     
-    const revealObserver = new IntersectionObserver((entries) => {
-        entries.forEach((entry, index) => {
-            if (entry.isIntersecting) {
-                setTimeout(() => {
-                    entry.target.classList.add('active');
+    if (revealElements.length > 0 && 'IntersectionObserver' in window) {
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
                     entry.target.style.opacity = '1';
                     entry.target.style.transform = 'translateY(0)';
-                }, index * 100);
-                revealObserver.unobserve(entry.target);
-            }
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '50px'
         });
-    }, {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    });
 
-    revealElements.forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(30px)';
-        el.style.transition = 'all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
-        revealObserver.observe(el);
-    });
+        revealElements.forEach((el, index) => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = `all 0.6s ease ${index % 4 * 0.1}s`;
+            revealObserver.observe(el);
+        });
+    }
 
-    // ===================== SMOOTH SECTION REVEAL =====================
-    const sections = document.querySelectorAll('section');
-    const sectionObserver = new IntersectionObserver((entries) => {
+    // Parallax scrolling removed for performance
+
+    // ===================== COUNTER ANIMATION =====================
+    const counters = document.querySelectorAll('.stat-number, [data-count]');
+    
+    const animateCounter = (el) => {
+        const target = parseInt(el.getAttribute('data-count') || el.textContent);
+        const duration = 2000;
+        const step = target / (duration / 16);
+        let current = 0;
+        
+        const updateCounter = () => {
+            current += step;
+            if (current < target) {
+                el.textContent = Math.floor(current);
+                requestAnimationFrame(updateCounter);
+            } else {
+                el.textContent = target;
+            }
+        };
+        
+        el.textContent = '0';
+        updateCounter();
+    };
+
+    const counterObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
+                animateCounter(entry.target);
+                counterObserver.unobserve(entry.target);
             }
         });
-    }, { threshold: 0.1 });
+    }, { threshold: 0.5 });
 
-    sections.forEach(section => {
-        if (!section.classList.contains('site-header')) {
-            section.style.opacity = '0';
-            section.style.transform = 'translateY(20px)';
-            section.style.transition = 'all 0.8s ease';
-            sectionObserver.observe(section);
+    counters.forEach(counter => counterObserver.observe(counter));
+
+    // ===================== SMOOTH SCROLL PROGRESS =====================
+    const progressBar = document.createElement('div');
+    progressBar.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 0%;
+        height: 3px;
+        background: linear-gradient(90deg, #1a6b4a, #2ecc71);
+        z-index: 10000;
+    `;
+    document.body.appendChild(progressBar);
+
+    let scrollTicking = false;
+    window.addEventListener('scroll', () => {
+        if (!scrollTicking) {
+            requestAnimationFrame(() => {
+                const scrollTop = window.scrollY;
+                const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+                const scrollPercent = (scrollTop / docHeight) * 100;
+                progressBar.style.width = `${scrollPercent}%`;
+                scrollTicking = false;
+            });
+            scrollTicking = true;
         }
+    }, { passive: true });
+
+    // Mouse trail removed for performance
+
+    // ===================== TILT EFFECT ON CARDS (Desktop only) =====================
+    if (window.matchMedia('(min-width: 768px) and (hover: hover)').matches) {
+        const tiltCards = document.querySelectorAll('.destination-card, .product-card, .testimonial-card');
+        let ticking = false;
+
+        tiltCards.forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                if (!ticking) {
+                    requestAnimationFrame(() => {
+                        const rect = card.getBoundingClientRect();
+                        const x = e.clientX - rect.left;
+                        const y = e.clientY - rect.top;
+                        const centerX = rect.width / 2;
+                        const centerY = rect.height / 2;
+                        const rotateX = (y - centerY) / 25;
+                        const rotateY = (centerX - x) / 25;
+
+                        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-5px)`;
+                        ticking = false;
+                    });
+                    ticking = true;
+                }
+            }, { passive: true });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = '';
+            }, { passive: true });
+        });
+    }
+
+    // ===================== DYNAMIC GREETING BASED ON TIME =====================
+    const getGreeting = () => {
+        const hour = new Date().getHours();
+        if (hour < 12) return 'Good Morning';
+        if (hour < 17) return 'Good Afternoon';
+        return 'Good Evening';
+    };
+
+    const greetingEl = document.querySelector('.hero-greeting');
+    if (greetingEl) {
+        greetingEl.textContent = getGreeting();
+    }
+
+    // ===================== SCROLL TO TOP SMOOTH =====================
+    const backToTop = document.querySelector('.back-to-top');
+    if (backToTop) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTop.style.opacity = '1';
+                backToTop.style.visibility = 'visible';
+            } else {
+                backToTop.style.opacity = '0';
+                backToTop.style.visibility = 'hidden';
+            }
+        });
+
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
+
+    // Magnetic button effect removed for performance
+
+    // ===================== LAZY LOAD IMAGES =====================
+    const lazyImages = document.querySelectorAll('img[data-src]');
+    
+    const imageObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const img = entry.target;
+                img.src = img.dataset.src;
+                img.classList.add('loaded');
+                imageObserver.unobserve(img);
+            }
+        });
+    }, { rootMargin: '50px' });
+
+    lazyImages.forEach(img => imageObserver.observe(img));
+
+    // Ripple effect removed for performance
+
+    // ===================== TYPING EFFECT FOR TAGLINE =====================
+    const typingElements = document.querySelectorAll('.typing-text');
+    
+    typingElements.forEach(el => {
+        const text = el.textContent;
+        el.textContent = '';
+        el.style.visibility = 'visible';
+        
+        let i = 0;
+        const typeWriter = () => {
+            if (i < text.length) {
+                el.textContent += text.charAt(i);
+                i++;
+                setTimeout(typeWriter, 100);
+            }
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting) {
+                typeWriter();
+                observer.disconnect();
+            }
+        });
+        
+        observer.observe(el);
     });
 
-    // Make header always visible
-    const header = document.querySelector('.site-header');
-    if (header) {
-        header.style.opacity = '1';
-        header.style.transform = 'none';
-    }
+    // ===================== SMOOTH PAGE TRANSITION =====================
+    document.querySelectorAll('a[href]').forEach(link => {
+        link.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            if (href.endsWith('.html') || href === '/') {
+                e.preventDefault();
+                document.body.style.opacity = '0';
+                document.body.style.transition = 'opacity 0.3s ease';
+                
+                setTimeout(() => {
+                    window.location.href = href;
+                }, 300);
+            }
+        });
+    });
+
+    // Fade in on page load
+    document.body.style.opacity = '0';
+    document.body.style.transition = 'opacity 0.5s ease';
+    setTimeout(() => {
+        document.body.style.opacity = '1';
+    }, 100);
 })();

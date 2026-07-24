@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ishwerya Oasis – Tranquilhomes</title>
+    <link rel="icon" href="assets/images/logos/Tranquil-Small-150x150.png" sizes="32x32">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+    <div class="header-container">
+        <div class="logo"><a href="index.html"><img src="assets/images/logos/Tranquil-logo-new1.png" alt="Tranquil Homes"></a></div>
+        <nav class="main-nav" id="mainNav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="accommodations.html" class="active">Accommodations</a></li>
+                <li><a href="restaurants.html">Restaurants</a></li>
+                <li><a href="famous-destinations.html">Famous Destinations</a></li>
+            </ul>
+        </nav>
+        <div class="header-right">
+            <a href="book-now.html" class="btn-book-now">Book Now</a>
+            <div class="social-icons">
+                <a href="https://facebook.com" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://facebook.com" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://facebook.com" aria-label="Youtube"><i class="fab fa-youtube"></i></a>
+            </div>
+            <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+        </div>
+    </div>
+</header>
+
+<div class="mobile-nav-overlay" id="mobileNavOverlay">
+    <div class="mobile-nav-content">
+        <button class="mobile-nav-close" id="mobileNavClose">&times;</button>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="accommodations.html" class="active">Accommodations</a></li>
+            <li><a href="restaurants.html">Restaurants</a></li>
+            <li><a href="famous-destinations.html">Famous Destinations</a></li>
+        </ul>
+    </div>
+</div>
+
+<!-- Property Hero -->
+<section class="property-hero">
+    <div class="property-hero-bg">
+        <img src="assets/images/accommodations/DSC01375.jpg" alt="Ishwerya Oasis">
+    </div>
+    <div class="property-hero-content">
+        <div class="container">
+            <span class="property-badge">Property</span>
+            <h1>Ishwerya Oasis</h1>
+            <p>Your Comfortable Stay in the Heart of Bangalore – Where Elegance Meets Convenience</p>
+            <div class="property-meta">
+                <span><i class="fas fa-map-marker-alt"></i> Kammanahalli & Kalyan Nagar, Bangalore</span>
+                <span><i class="fas fa-star"></i> 4.8 (120 reviews)</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Image Gallery -->
+<section class="property-gallery">
+    <div class="container">
+        <div class="gallery-scroll">
+            <img src="assets/images/accommodations/DSC01375.jpg" alt="Ishwerya Oasis" loading="lazy">
+        </div>
+    </div>
+</section>
+
+<!-- Room Types -->
+<section class="room-booking-section">
+    <div class="container">
+        <div class="section-header">
+            <h2>Choose Your Room</h2>
+            <p>Select from our carefully designed rooms, each offering comfort and elegance</p>
+        </div>
+
+        <!-- Room Tabs -->
+        <div class="room-tabs">
+            <button class="room-tab active" data-room="executive">Executive</button>
+            <button class="room-tab" data-room="king">King</button>
+            <button class="room-tab" data-room="minister">Minister</button>
+            <button class="room-tab" data-room="queen">Queen</button>
+            <button class="room-tab" data-room="stanza">Stanza</button>
+        </div>
+
+        <!-- Room Cards -->
+        <div class="room-cards">
+
+            <!-- Executive -->
+            <div class="room-card active" data-room="executive">
+                <div class="room-card-header">
+                    <div class="room-card-title">
+                        <h3>Executive Suite</h3>
+                        <span class="room-tag">With Balcony</span>
+                    </div>
+                    <div class="room-card-price">
+                        <span class="price-from">Starting from</span>
+                        <span class="price-amount">₹2,611</span>
+                        <span class="price-tax">*Including Tax</span>
+                    </div>
+                </div>
+                <div class="room-card-body">
+                    <div class="room-specs">
+                        <div class="spec-item">
+                            <i class="fas fa-users"></i>
+                            <div>
+                                <span class="spec-label">Capacity</span>
+                                <span class="spec-value">3 (2 Adult + 1 Children)</span>
+                            </div>
+                        </div>
+                        <div class="spec-item">
+                            <i class="fas fa-ruler-combined"></i>
+                            <div>
+                                <span class="spec-label">Size</span>
+                                <span class="spec-value">255 Sq/Ft</span>
+                            </div>
+                        </div>
+                        <div class="spec-item">
+                            <i class="fas fa-bed"></i>
+                            <div>
+                                <span class="spec-label">Bed Size</span>
+                                <span class="spec-value">Queen</span>
+                            </div>
+                        </div>
+                        <div class="spec-item">
+                            <i class="fas fa-door-open"></i>
+                            <div>
+                                <span class="spec-label">Room Type</span>
+                                <span class="spec-value">Executive Suite with Balcony</span>
+                            </div>
+                        </div>
+                        <div class="spec-item">
+                            <i class="fas fa-coffee"></i>
+                            <div>
+                                <span class="spec-label">Breakfast</span>
+                                <span class="spec-value">Available on Extra Charge</span>
+                            </div>
+                        </div>
+                        <div class="spec-item">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <span class="spec-label">Timing</span>
+                                <span class="spec-value">Check-in: 12:00pm | Check-Out: 10:00am to 11:00am</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="room-extras">
+                        <div class="extra-item">
+                            <span class="extra-label">Amenities</span>
+                            <div class="extra-tags">
+                                <span>TV</span><span>AC</span><span>Tea & Coffee Maker</span><span>Toiletries</span><span>Bath Towel</span>
+                            </div>
+                        </div>
+                        <div class="extra-item">
+                            <span class="extra-label">Extra Bed</span>
+                            <span class="extra-value">Available on Request – ₹650</span>
+                        </div>
+                        <div class="extra-item">
+                            <span class="extra-label">Smoking</span>
+                            <span class="extra-value allowed"><i class="fas fa-check-circle"></i> Yes! On Balcony</span>
+                        </div>
+                        <div class="extra-item">
+                            <span class="extra-label">Pets</span>
+                            <span class="extra-value prohibited"><i class="fas fa-times-circle"></i> Strictly Prohibited</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="room-card-footer">
+                    <button class="btn-room-book" onclick="document.getElementById('paymentPopup').classList.add('active')">
+                        <i class="fas fa-calendar-check"></i> Book Now for ₹2,611
+                    </button>
+                </div>
+            </div>
+
+            <!-- King -->
+            <div class="room-card" data-room="king">
+                <div class="room-card-header">
+                    <div class="room-card-title">
+                        <h3>King Suite</h3>
+                    </div>
+                    <div class="room-card-price">
+                        <span class="price-from">Starting from</span>
+                        <span class="price-amount">₹3,091</span>
+                        <span class="price-tax">*Including Tax</span>
+                    </div>
+                </div>
+                <div class="room-card-body">
+                    <div class="room-specs">
+                        <div class="spec-item">
+                            <i class="fas fa-users"></i>
+                            <div>
+                                <span class="spec-label">Capacity</span>
+                                <span class="spec-value">3 (2 Adult + 1 Children)</span>
+                            </div>
+                        </div>
+                        <div class="spec-item">
+                            <i class="fas fa-ruler-combined"></i>
+                            <div>
+                                <span class="spec-label">Size</span>
+                                <span class="spec-value">385 Sq/Ft</span>
+                            </div>
+                        </div>
+                        <div class="spec-item">
+                            <i class="fas fa-bed"></i>
+                            <div>
+                                <span class="spec-label">Bed Size</span>
+                                <span class="spec-value">Queen</span>
+                            </div>
+                        </div>
+                        <div class="spec-item">
+                            <i class="fas fa-door-open"></i>
+                            <div>
+                                <span class="spec-label">Room Type</span>
+                                <span class="spec-value">King Suite</span>
+                            </div>
+                        </div>
+                        <div class="spec-item">
+                            <i class="fas fa-coffee"></i>
+                            <div>
+                                <span class="spec-label">Breakfast</span>
+                                <span class="spec-value">Available on Extra Charge</span>
+                            </div>
+                        </div>
+                        <div class="spec-item">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <span class="spec-label">Timing</span>
+                                <span class="spec-value">Check-in: 12:00pm | Check-Out: 12:00pm</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="room-extras">
+                        <div class="extra-item">
+                            <span class="extra-label">Amenities</span>
+                            <div class="extra-tags">
+                                <span>TV</span><span>AC</span><span>Tea & Coffee Maker</span><span>Toiletries</span><span>Bath Towel</span>
+                            </div>
+                        </div>
+                        <div class="extra-item">
+                            <span class="extra-label">Extra Bed</span>
+                            <span class="extra-value">Available on Request – ₹650</span>
+                        </div>
+                        <div class="extra-item">
+                            <span class="extra-label">Smoking</span>
+                            <span class="extra-value prohibited"><i class="fas fa-times-circle"></i> Strictly Prohibited</span>
+                        </div>
+                        <div class="extra-item">
+                            <span class="extra-label">Pets</span>
+                            <span class="extra-value prohibited"><i class="fas fa-times-circle"></i> Strictly Prohibited</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="room-card-footer">
+                    <button class="btn-room-book" onclick="document.getElementById('paymentPopup').classList.add('active')">
+                        <i class="fas fa-calendar-check"></i> Book Now for ₹3,091
+                    </button>
+                </div>
+            </div>
+
+            <!-- Minister -->
+            <div class="room-card" data-room="minister">
+                <div class="room-card-header">
+                    <div class="room-card-title">
+                        <h3>Minister Suite</h3>
+                        <span class="room-tag">With Balcony</span>
+                    </div>
+                    <div class="room-card-price">
+                        <span class="price-from">Starting from</span>
+                        <span class="price-amount">₹2,822</span>
+                        <span class="price-tax">*Including Tax</span>
+                    </div>
+                </div>
+                <div class="room-card-body">
+                    <div class="room-specs">
+                        <div class="spec-item">
+                            <i class="fas fa-users"></i>
+                            <div>
+                                <span class="spec-label">Capacity</span>
+                                <span class="spec-value">3 (2 Adult + 1 Children)</span>
+                            </div>
+                        </div>
+                        <div class="spec-item">
+                            <i class="fas fa-ruler-combined"></i>
+                            <div>
+                                <span class="spec-label">Size</span>
+                                <span class="spec-value">320 Sq/Ft</span>
+                            </div>
+                        </div>
+                        <div class="spec-item">
+                            <i class="fas fa-bed"></i>
+                            <div>
+                                <span class="spec-label">Bed Size</span>
+                                <span class="spec-value">Queen</span>
+                            </div>
+                        </div>
+                        <div class="spec-item">
+                            <i class="fas fa-door-open"></i>
+                            <div>
+                                <span class="spec-label">Room Type</span>
+                                <span class="spec-value">Minister Suite with Balcony</span>
+                            </div>
+                        </div>
+                        <div class="spec-item">
+                            <i class="fas fa-coffee"></i>
+                            <div>
+                                <span class="spec-label">Breakfast</span>
+                                <span class="spec-value">Available on Extra Charge</span>
+                            </div>
+                        </div>
+                        <div class="spec-item">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <span class="spec-label">Timing</span>
+                                <span class="spec-value">Check-in: 12:00pm | Check-Out: 12:00pm</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="room-extras">
+                        <div class="extra-item">
+                            <span class="extra-label">Amenities</span>
+                            <div class="extra-tags">
+                                <span>TV</span><span>AC</span><span>Tea & Coffee Maker</span><span>Toiletries</span><span>Bath Towel</span>
+                            </div>
+                        </div>
+                        <div class="extra-item">
+                            <span class="extra-label">Extra Bed</span>
+                            <span class="extra-value">Available on Request – ₹650</span>
+                        </div>
+                        <div class="extra-item">
+                            <span class="extra-label">Smoking</span>
+                            <span class="extra-value allowed"><i class="fas fa-check-circle"></i> Yes! On Balcony</span>
+                        </div>
+                        <div class="extra-item">
+                            <span class="extra-label">Pets</span>
+                            <span class="extra-value prohibited"><i class="fas fa-times-circle"></i> Strictly Prohibited</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="room-card-footer">
+                    <button class="btn-room-book" onclick="document.getElementById('paymentPopup').classList.add('active')">
+                        <i class="fas fa-calendar-check"></i> Book Now for ₹2,822
+                    </button>
+                </div>
+            </div>
+
+            <!-- Queen -->
+            <div class="room-card" data-room="queen">
+                <div class="room-card-header">
+                    <div class="room-card-title">
+                        <h3>Queen Suite</h3>
+                    </div>
+                    <div class="room-card-price">
+                        <span class="price-from">Starting from</span>
+                        <span class="price-amount">₹4,300</span>
+                        <span class="price-tax">*Including Tax</span>
+                    </div>
+                </div>
+                <div class="room-card-body">
+                    <div class="room-specs">
+                        <div class="spec-item">
+                            <i class="fas fa-users"></i>
+                            <div>
+                                <span class="spec-label">Capacity</span>
+                                <span class="spec-value">4 (3 Adult + 1 Children)</span>
+                            </div>
+                        </div>
+                        <div class="spec-item">
+                            <i class="fas fa-ruler-combined"></i>
+                            <div>
+                                <span class="spec-label">Size</span>
+                                <span class="spec-value">305 Sq/Ft</span>
+                            </div>
+                        </div>
+                        <div class="spec-item">
+                            <i class="fas fa-bed"></i>
+                            <div>
+                                <span class="spec-label">Bed Size</span>
+                                <span class="spec-value">2 Queen Beds</span>
+                            </div>
+                        </div>
+                        <div class="spec-item">
+                            <i class="fas fa-door-open"></i>
+                            <div>
+                                <span class="spec-label">Room Type</span>
+                                <span class="spec-value">Queen Suite</span>
+                            </div>
+                        </div>
+                        <div class="spec-item">
+                            <i class="fas fa-coffee"></i>
+                            <div>
+                                <span class="spec-label">Breakfast</span>
+                                <span class="spec-value">Available on Extra Charge</span>
+                            </div>
+                        </div>
+                        <div class="spec-item">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <span class="spec-label">Timing</span>
+                                <span class="spec-value">Check-in: 12:00pm | Check-Out: 12:00pm</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="room-extras">
+                        <div class="extra-item">
+                            <span class="extra-label">Amenities</span>
+                            <div class="extra-tags">
+                                <span>TV</span><span>AC</span><span>Tea & Coffee Maker</span><span>Toiletries</span><span>Bath Towel</span>
+                            </div>
+                        </div>
+                        <div class="extra-item">
+                            <span class="extra-label">Extra Bed</span>
+                            <span class="extra-value">Available on Request – ₹650</span>
+                        </div>
+                        <div class="extra-item">
+                            <span class="extra-label">Smoking</span>
+                            <span class="extra-value prohibited"><i class="fas fa-times-circle"></i> Strictly Prohibited</span>
+                        </div>
+                        <div class="extra-item">
+                            <span class="extra-label">Pets</span>
+                            <span class="extra-value prohibited"><i class="fas fa-times-circle"></i> Strictly Prohibited</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="room-card-footer">
+                    <button class="btn-room-book" onclick="document.getElementById('paymentPopup').classList.add('active')">
+                        <i class="fas fa-calendar-check"></i> Book Now for ₹4,300
+                    </button>
+                </div>
+            </div>
+
+            <!-- Stanza -->
+            <div class="room-card" data-room="stanza">
+                <div class="room-card-header">
+                    <div class="room-card-title">
+                        <h3>Stanza Suite</h3>
+                        <span class="room-tag">With Balcony</span>
+                    </div>
+                    <div class="room-card-price">
+                        <span class="price-from">Starting from</span>
+                        <span class="price-amount">₹3,494</span>
+                        <span class="price-tax">*Including Tax</span>
+                    </div>
+                </div>
+                <div class="room-card-body">
+                    <div class="room-specs">
+                        <div class="spec-item">
+                            <i class="fas fa-users"></i>
+                            <div>
+                                <span class="spec-label">Capacity</span>
+                                <span class="spec-value">3 (2 Adult + 1 Children)</span>
+                            </div>
+                        </div>
+                        <div class="spec-item">
+                            <i class="fas fa-ruler-combined"></i>
+                            <div>
+                                <span class="spec-label">Size</span>
+                                <span class="spec-value">315 Sq/Ft</span>
+                            </div>
+                        </div>
+                        <div class="spec-item">
+                            <i class="fas fa-bed"></i>
+                            <div>
+                                <span class="spec-label">Bed Size</span>
+                                <span class="spec-value">Queen</span>
+                            </div>
+                        </div>
+                        <div class="spec-item">
+                            <i class="fas fa-door-open"></i>
+                            <div>
+                                <span class="spec-label">Room Type</span>
+                                <span class="spec-value">Stanza Suite with Balcony</span>
+                            </div>
+                        </div>
+                        <div class="spec-item">
+                            <i class="fas fa-coffee"></i>
+                            <div>
+                                <span class="spec-label">Breakfast</span>
+                                <span class="spec-value">Available on Extra Charge</span>
+                            </div>
+                        </div>
+                        <div class="spec-item">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <span class="spec-label">Timing</span>
+                                <span class="spec-value">Check-in: 12:00pm | Check-Out: 12:00pm</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="room-extras">
+                        <div class="extra-item">
+                            <span class="extra-label">Amenities</span>
+                            <div class="extra-tags">
+                                <span>TV</span><span>AC</span><span>Tea & Coffee Maker</span><span>Toiletries</span><span>Bath Towel</span>
+                            </div>
+                        </div>
+                        <div class="extra-item">
+                            <span class="extra-label">Extra Bed</span>
+                            <span class="extra-value">Available on Request – ₹650</span>
+                        </div>
+                        <div class="extra-item">
+                            <span class="extra-label">Smoking</span>
+                            <span class="extra-value allowed"><i class="fas fa-check-circle"></i> Yes! On Balcony</span>
+                        </div>
+                        <div class="extra-item">
+                            <span class="extra-label">Pets</span>
+                            <span class="extra-value prohibited"><i class="fas fa-times-circle"></i> Strictly Prohibited</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="room-card-footer">
+                    <button class="btn-room-book" onclick="document.getElementById('paymentPopup').classList.add('active')">
+                        <i class="fas fa-calendar-check"></i> Book Now for ₹3,494
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="site-footer">
+    <div class="footer-top">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col footer-about">
+                    <div class="footer-logo"><a href="index.html"><img src="assets/images/logos/Tranquil-logo-new1.png" alt="Tranquil Homes"></a></div>
+                    <p>Everything you need for work and play; Our Hotel delivers the comfort and convenience. Our spacious guest rooms offer plush bedding and stylish bath amenities. The in-room desk and hotel business centre provide the right tools for a productive stay. Experience where stylish, modern design meets exceptional service and value at Tranquil Homes.</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col footer-links">
+                    <h3>Useful Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about-us.html">About Us</a></li>
+                        <li><a href="accommodations.html">Accommodation</a></li>
+                        <li><a href="restaurants.html">Restaurants</a></li>
+                        <li><a href="testimonials.html">Testimonials</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="terms-conditions.html">Terms & Conditions</a></li>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col footer-contact">
+                    <h3>Get in Touch</h3>
+                    <form class="contact-form" id="contactForm">
+                        <input type="text" placeholder="Name" required>
+                        <input type="email" placeholder="Email" required>
+                        <textarea placeholder="Message" rows="4" required></textarea>
+                        <input type="tel" placeholder="Phone">
+                        <button type="submit" class="btn-send">Send</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div class="container">
+            <p>&copy;2026. Tranquil Homes All Rights Reserved. <span>Home Sweet Home</span></p>
+        </div>
+    </div>
+</footer>
+
+<!-- Payment Popup -->
+<div class="popup-overlay" id="paymentPopup">
+    <div class="popup-content">
+        <button class="popup-close" id="popupClose">&times;</button>
+        <div class="popup-body">
+            <img src="assets/images/payment/oie_lQEwftt06VAZ-211x300.png" alt="Payment QR" class="popup-qr">
+            <div class="payment-details">
+                <div class="detail-row"><span>Account Number</span><span>: 41158989269</span></div>
+                <div class="detail-row"><span>Account Name</span><span>: Tranquil Homes</span></div>
+                <div class="detail-row"><span>Account Type</span><span>: Current Account</span></div>
+                <div class="detail-row"><span>Branch</span><span>: Shiwanchetty Garden, Bengaluru</span></div>
+                <div class="detail-row"><span>IFSC Code</span><span>: SBIN0031626</span></div>
+            </div>
+        </div>
+    </div>
+</div>
+<button class="payment-trigger" id="paymentTrigger">Payment</button>
+
+<script src="script.js"></script>
+<script>
+// Room Tab Switching
+document.querySelectorAll('.room-tab').forEach(tab => {
+    tab.addEventListener('click', function() {
+        document.querySelectorAll('.room-tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.room-card').forEach(c => c.classList.remove('active'));
+        this.classList.add('active');
+        document.querySelector(`.room-card[data-room="${this.dataset.room}"]`).classList.add('active');
+    });
+});
+</script>
+</body>
+</html>
